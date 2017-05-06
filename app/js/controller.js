@@ -7,8 +7,8 @@ angular.module('angularWeather',[])
 		console.log(json_obj.weather[0].description);
 		$scope.tempo = json_obj.weather[0].description;
 		console.log(json_obj);
-		$scope.temperaturaMin = json_obj.main.temp_min;
-		$scope.temperaturaMax = json_obj.main.temp_max;
+		$scope.temperaturaMin = Math.round(json_obj.main.temp_min - 273);
+		$scope.temperaturaMax = Math.round(json_obj.main.temp_max - 273);
 
 		
 	}
