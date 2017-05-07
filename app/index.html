@@ -22,9 +22,9 @@
 <div class="vertical-center">
 	<!-- edit text -->
 	<div class="row">
-		<form  class="input-group col-md-6 col-md-offset-3" ng-submit="searchWeather(city)">
-			<input type="text" class="form-control" ng-model="city" placeholder="Name of the city...">
-			<span class="input-group-btn" id="basic-addon2"><button class="btn btn-primary"  ng-click="searchWeather(city)" >Search</a></span>
+		<form  name="inputForm" class="input-group col-md-6 col-md-offset-3" ng-submit="searchWeather(city)">
+			<input type="text" class="form-control" ng-model="city" placeholder="Name of the city..." required>
+			<span class="input-group-btn" id="basic-addon2"><button class="btn btn-primary"  ng-disabled="inputForm.$invalid" ng-click="searchWeather(city)" >Search</a></span>
 		</form>
 	</div>
 </div>
