@@ -7,7 +7,9 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript" src="lib/angular.min.js"></script>
+<script type="text/javascript" src="lib/angular-animate.min.js"></script>
 <script type="text/javascript" src="js/controller.js"></script>
+
 
 </head>
 
@@ -15,7 +17,7 @@
 
 
 <div class="container" ng-controller="mainController">
-	<div ng-show="showImage">
+	<div ng-if="showImage" class="fade">
 	<div class="custom-container" >
 		<h5 >Result for {{resultText}}</h3>
 		<img class="img-responsive center-block" src="img/{{tempo}}.jpg" >
