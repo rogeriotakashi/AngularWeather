@@ -11,8 +11,14 @@ angular.module('angularWeather',['ngAnimate'])
 		console.log(json_obj.weather[0].description);
 		$scope.tempo = json_obj.weather[0].description;
 		console.log(json_obj);
-		$scope.temperaturaMin = Math.round(json_obj.main.temp_min - 273);
-		$scope.temperaturaMax = Math.round(json_obj.main.temp_max - 273);
+		$scope.temperature = Math.round(json_obj.main.temp - 273);
+		$scope.temperatureMin = Math.round(json_obj.main.temp_min - 273);
+		$scope.temperatureMax = Math.round(json_obj.main.temp_max - 273);
+		$scope.windspeed = Math.round(json_obj.wind.speed * 3.6);
+		$scope.humidity = json_obj.main.humidity;
+		$scope.date = new Date();
+
+
 		$scope.dynamicBlock = "half-empty-block";
 	}
 

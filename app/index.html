@@ -1,7 +1,7 @@
 <!DOCTYPE>
 
 <html ng-app="angularWeather">
-
+<meta charset="utf-8">
 <head>
 <title>Angular Weather</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -22,8 +22,12 @@
 		<h5 >Result for {{resultText}}</h3>
 		<img class="img-responsive center-block" src="img/{{tempo}}.jpg" >
 		<h2 class="text-center">{{tempo}}</h2>
-		<h2 class="text-center smaller-font" ><span class="min-temperature">Min</span> {{temperaturaMin}} Celsius</h2>
-		<h2 class="text-center smaller-font" ><span class="max-temperature">Max</span> {{temperaturaMax}} Celsius</h2>
+		<h2 class="text-center" ><span class="current-temperature"></span> {{temperature}} ºC</h2>
+		<h2 class="text-center smaller-font" ><span class="min-temperature">Min</span> {{temperatureMin}} ºC</h2>
+		<h2 class="text-center smaller-font" ><span class="max-temperature">Max</span> {{temperaturaMax}} ºC</h2>
+		<h2 class="text-center smaller-font" ><span class="">wind: </span> {{windspeed}} Km/h</h2>
+		<h2 class="text-center smaller-font" ><span class="">humidity: </span> {{humidity}} %</h2>
+		<h2 class="text-center smaller-font" ><span class=""></span> {{date | date:'hh:mm dd-mm-yyyy'}}</h2>
 	</div>
 	</div>
 <div class="vertical-center">
@@ -39,21 +43,8 @@
 </div>
 </div>
 
-<footer class="footer">
-<div class="container footer-container">
-  	  <div class="col-md-6">
-	  <p class="footer-text">Created by: Rogerio Takashi Hirata</p>
-	  <p class="footer-text">Contact information: <a href="mailto:rogeriotakashi@hotmail.com">
-	  rogeriotakashi@hotmail.com</a>.</p>
-	  </div>
 
-  	  <div class="col-md-6">
-	  <p class="footer-text">Repository: <a href="https://github.com/rogeriotakashi/AngularWeather">github.com/rogeriotakashi/AngularWeather</a></p>
-	  <p class="footer-text">Technologies used: Angular 1.6, JavaScript, Css, HTML5</p>
-	  </div>
-</div>
 
-</footer>
 
 </body>
 </html>
