@@ -2,9 +2,22 @@ a {
 	color: inherit; 
 } 
 
+.text-group-box {
+	width:30%;
+	margin:auto;
+}
+.info-text-group-box{
+	padding-top: 5%;
+	padding-left: 30%;
+}
+
 .vertical-center {
 	display: flex;
 	align-items: center;
+}
+
+.bigger-font {
+	font-size: 22px;
 }
 
 .min-temperature{
@@ -13,6 +26,14 @@ a {
 
 .max-temperature{
 	color:#B22222;/*Vine*/
+}
+
+.windspeed {
+	color:#11b24a;
+}
+
+.humidity {
+	color:#046b93;
 }
 
 .empty-block{
@@ -27,7 +48,7 @@ a {
 }
 
 .smaller-font{
-	font-size:20px;
+	font-size:18px;
 }
 
 .footer{

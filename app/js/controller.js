@@ -17,8 +17,7 @@ angular.module('angularWeather',['ngAnimate'])
 		$scope.windspeed = Math.round(json_obj.wind.speed * 3.6);
 		$scope.humidity = json_obj.main.humidity;
 		$scope.date = new Date();
-
-
+		$scope.ampm = (($scope.date.getHours() >= 12)? "PM": "AM");
 		$scope.dynamicBlock = "half-empty-block";
 	}
 
