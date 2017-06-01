@@ -1,4 +1,4 @@
-angular.module('angularWeather',['ngAnimate'])
+angular.module('angularWeather',['ngAnimate','resultModule'])
 .controller('mainController',function($scope){
 	$scope.dynamicBlock = "empty-block";
 	$scope.resultText = "";
@@ -8,9 +8,7 @@ angular.module('angularWeather',['ngAnimate'])
 		$scope.resultText = $scope.city;
 		var json_obj = JSON.parse(getJSON("http://api.openweathermap.org/data/2.5/weather?q={"+city+"}&units=metric&appid=0d9804d47ee2f434cb4ce6c4345aab5c"));
 
-		console.log(json_obj.weather[0].description);
 		$scope.tempo = json_obj.weather[0].description;
-		console.log(json_obj);
 		$scope.temperature = Math.round(json_obj.main.temp);
 		$scope.temperatureMin = Math.round(json_obj.main.temp_min);
 		$scope.temperatureMax = Math.round(json_obj.main.temp_max);
