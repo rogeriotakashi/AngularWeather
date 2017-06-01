@@ -2,6 +2,18 @@ angular.module('angularWeather',['ngAnimate','resultModule'])
 .controller('mainController',function($scope){
 	$scope.dynamicBlock = "empty-block";
 	$scope.resultText = "";
+	$scope.options=[{
+		value:'city',
+		label:'City',
+	},{
+		value:'zipcode',
+		label:'Zip Code',
+	},{
+		value:'coord',
+		label:'Coordinate',
+	}];
+
+	$scope.inputPlaceHolder = "Select a search option first";
 
 	$scope.searchWeather = function(city){
 		$scope.showImage = true;
@@ -28,6 +40,10 @@ angular.module('angularWeather',['ngAnimate','resultModule'])
 
 		return xmlhttp.responseText;	
 
+	}
+
+	$scope.setNewPlaceHolder = function(item){
+		$scope.inputPlaceHolder = "Search by "+ item.value;
 	}
 
 

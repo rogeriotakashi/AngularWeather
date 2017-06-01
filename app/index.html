@@ -6,6 +6,7 @@
 <title>Angular Weather</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+
 <script type="text/javascript" src="lib/angular.min.js"></script>
 <script type="text/javascript" src="lib/angular-animate.min.js"></script>
 <script type="text/javascript" src="js/controller.js"></script>
@@ -18,18 +19,32 @@
 
 
 <div class="container" ng-controller="mainController">
-	<div result-test></div>
+	<result-test></result-test>
+
 <div class="vertical-center">
 	<!-- edit text -->
 	<div class="row">
 		<div ng-class="dynamicBlock"></div>
 
-		<form  name="inputForm" class="input-group col-md-6 col-md-offset-3" ng-submit="searchWeather(city)">
-			<input type="text" class="form-control" ng-model="city" placeholder="Name of the city..." required>
-			<span class="input-group-btn" id="basic-addon2"><button class="btn btn-primary"  ng-disabled="inputForm.$invalid" ng-click="searchWeather(city)" >Search</a></span>
+		<form  class="input-group col-md-6 col-md-offset-3" ng-submit="searchWeather(city)">		
+			<div class="row">
+				<div class="col-md-9 nopadding">
+					<input type="text" name="test" class="form-control" ng-model="city" placeholder="{{inputPlaceHolder}}" required>		
+				</div>
+				<div class="col-md-3 nopadding">
+				<select class="form-control" ng-model="selected_option" ng-options="option.label for option in options"
+				ng-change="setNewPlaceHolder(selected_option)">	
+				</select>
+
+				</div>
+			</div>
+
+			<span class="input-group-btn" id="basic-addon2">
+			<button class="btn btn-primary"  ng-disabled="inputForm.$invalid" ng-click="searchWeather(city)">Search</a></span>
 		</form>
 	</div>
 </div>
+
 </div>
 
 
