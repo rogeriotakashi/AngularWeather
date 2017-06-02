@@ -15,10 +15,11 @@ angular.module('angularWeather',['ngAnimate','resultModule'])
 
 	$scope.inputPlaceHolder = "Select a search option first";
 
-	$scope.searchWeather = function(city){
+	$scope.searchWeather = function(parameter,search){
 		$scope.showImage = true;
-		$scope.resultText = $scope.city;
-		var json_obj = JSON.parse(getJSON("http://api.openweathermap.org/data/2.5/weather?q={"+city+"}&units=metric&appid=0d9804d47ee2f434cb4ce6c4345aab5c"));
+		$scope.resultText = search;
+		var json_obj = getJSONObj(parameter,search);
+		console.log(json_obj);
 
 		$scope.tempo = json_obj.weather[0].description;
 		$scope.temperature = Math.round(json_obj.main.temp);
@@ -31,7 +32,23 @@ angular.module('angularWeather',['ngAnimate','resultModule'])
 		$scope.dynamicBlock = "half-empty-block";
 	}
 
+	function getJSONObj(parameter,search){
+		var getJSONObj;
 
+		switch(parameter){
+			case "city":
+				getJSONObj = JSON.parse(getJSON("http://api.openweathermap.org/data/2.5/weather?q={"+search+"}&units=metric&appid=0d9804d47ee2f434cb4ce6c4345aab5c"));
+				break;
+			case "zipcode":
+				getJSONObj = JSON.parse(getJSON("http://api.openweathermap.org/data/2.5/weather?zip={"+search+"},{BR}&units=metric&appid=0d9804d47ee2f434cb4ce6c4345aab5c"));
+				break;
+			case "coord":
+				getJSONObj = JSON.parse(getJSON("http://api.openweathermap.org/data/2.5/weather?q={"+search+"}&units=metric&appid=0d9804d47ee2f434cb4ce6c4345aab5c"));
+				break;
+		}
+		console.log(getJSONObj);
+		return getJSONObj;
+	}
 
 	function getJSON(url){
 		var xmlhttp = new XMLHttpRequest();
