@@ -11,6 +11,10 @@
 <script type="text/javascript" src="lib/angular-animate.min.js"></script>
 <script type="text/javascript" src="js/controller.js"></script>
 <script type="text/javascript" src="js/directives/result.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script type="text/javascript" src="lib/ng-map.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyDh4PLoOKQUZRUl5vpQ6E9tNMD8jZ8dbhg"></script>
+
 
 
 </head>
@@ -34,8 +38,11 @@
 	</div>
 </div>
 
-</div>
+<button ng-click="showMap()">Show maps</button>
 
+<div ng-if="div1Hide">
+     <ng-map id="map1" class="map" center="[-33.851371, 151.277736]" zoom-level="18">Parsley</ng-map>
+</div>
 
 
 

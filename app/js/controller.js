@@ -1,7 +1,9 @@
-angular.module('angularWeather',['ngAnimate','resultModule'])
+angular.module('angularWeather',['ngAnimate','resultModule','ngRoute','ngMap'])
 .controller('mainController',function($scope){
 	$scope.dynamicBlock = "empty-block";
 	$scope.resultText = "";
+	$scope.div1Hide=false;
+
 
 	$scope.searchWeather = function(search){
 		$scope.showImage = true;
@@ -19,6 +21,12 @@ angular.module('angularWeather',['ngAnimate','resultModule'])
 		$scope.dynamicBlock = "half-empty-block";
 	}
 
+	$scope.showMap = function(){
+		$scope.div1Hide = true;
+	}
+
+
+
 
 
 	function getJSONObj(search){
@@ -35,6 +43,13 @@ angular.module('angularWeather',['ngAnimate','resultModule'])
 
 
 
+
+})
+.config(function($routeProvider){
+	
+	$routeProvider.when("/map", {
+    	templateUrl : "partials/map-search.html"
+  	});
 
 });
 

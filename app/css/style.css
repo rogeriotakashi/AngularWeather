@@ -66,3 +66,9 @@ a {
 .fade.ng-enter.ng-enter-active {
   opacity:1;
 }
+
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 100%;
+}
