@@ -26,21 +26,10 @@
 		<div ng-class="dynamicBlock"></div>
 
 		<form  name="inputForm" class="input-group col-md-6 col-md-offset-3">		
-			<div class="row">
-				<div class="col-md-9">
-					<input type="text" class="form-control" ng-model="search.result" placeholder="{{inputPlaceHolder}}" required>		
-				</div>
-				<div class="col-md-3">
-				<select class="form-control" ng-model="selected_option" ng-options="option.label for option in options"
-				ng-change="setNewPlaceHolder(selected_option)" >
-					<option value="">Search</option>
-				</select>
-
-				</div>
-			</div>
+			<input type="text" class="form-control" ng-model="search.result" placeholder="Digite um nome de uma cidade" required>		
 
 			<span class="input-group-btn" id="basic-addon2">
-			<button class="btn btn-primary"  ng-disabled="(inputForm.$invalid || selected_option===undefined )" ng-click="searchWeather(selected_option.value,search.result)">Search</span>
+			<button class="btn btn-primary"  ng-disabled="(inputForm.$invalid)" ng-click="searchWeather(search.result)">Search</span>
 		</form>
 	</div>
 </div>
