@@ -37,11 +37,16 @@
 		</form>
 	</div>
 </div>
+	<div class="col-md-12 text-center">
+		<button class="btn btn-secondary center" ng-click="showMap()">Search by Map</button>
+	</div>
 
-<button ng-click="showMap()">Show maps</button>
+
 
 <div ng-if="div1Hide">
-     <ng-map id="map1" class="map" center="[-33.851371, 151.277736]" zoom-level="18">Parsley</ng-map>
+     <ng-map id="map1" class="map" style="height:300px;" center="[-33.851371, 151.277736]" zoom-level="18" on-click="mapClicked()">Click in the map to search</ng-map>
+
+      
 </div>
 
 

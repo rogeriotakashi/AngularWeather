@@ -22,11 +22,13 @@ angular.module('angularWeather',['ngAnimate','resultModule','ngRoute','ngMap'])
 	}
 
 	$scope.showMap = function(){
-		$scope.div1Hide = true;
+		$scope.div1Hide = !$scope.div1Hide;
 	}
 
-
-
+	$scope.mapClicked = function(event){
+		console.log(event.latLng.lat());
+		console.log(event.latLng.lng());
+	}
 
 
 	function getJSONObj(search){
