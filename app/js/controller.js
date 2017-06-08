@@ -5,10 +5,11 @@ angular.module('angularWeather',['ngAnimate','resultModule','ngRoute','ngMap'])
 	$scope.div1Hide=false;
 
 
-	$scope.searchWeather = function(search){
+	$scope.searchWeather = function(search,parameter){
 		$scope.showImage = true;
 		$scope.resultText = search;
-		var json_obj = getJSONObj(search);
+		var json_obj = getJSONObj(search,parameter);
+		console.log(json_obj);
 
 		$scope.tempo = json_obj.weather[0].description;
 		$scope.temperature = Math.round(json_obj.main.temp);
@@ -26,13 +27,19 @@ angular.module('angularWeather',['ngAnimate','resultModule','ngRoute','ngMap'])
 	}
 
 	$scope.mapClicked = function(event){
-		console.log(event.latLng.lat());
-		console.log(event.latLng.lng());
+		$scope.searchWeather(event.latLng,'coord');
 	}
 
 
-	function getJSONObj(search){
-		return JSON.parse(getJSON("http://api.openweathermap.org/data/2.5/weather?q="+search+"&units=metric&appid=0d9804d47ee2f434cb4ce6c4345aab5c"));;
+	function getJSONObj(search,parameter){
+		switch(parameter){
+			case 'city':
+				return JSON.parse(getJSON("http://api.openweathermap.org/data/2.5/weather?q="+search+"&units=metric&appid=0d9804d47ee2f434cb4ce6c4345aab5c"));
+				break;
+			case 'coord':
+				return JSON.parse(getJSON("http://api.openweathermap.org/data/2.5/weather?lat="+search.lat()+"&lon="+search.lng()+"&units=metric&appid=0d9804d47ee2f434cb4ce6c4345aab5c"));
+				break;
+		}
 	}
 
 	function getJSON(url){

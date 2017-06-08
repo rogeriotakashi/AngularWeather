@@ -33,7 +33,7 @@
 			<input type="text" class="form-control" ng-model="search.result" placeholder="Digite um nome de uma cidade" required>		
 
 			<span class="input-group-btn" id="basic-addon2">
-			<button class="btn btn-primary"  ng-disabled="(inputForm.$invalid)" ng-click="searchWeather(search.result)">Search</span>
+			<button class="btn btn-primary"  ng-disabled="(inputForm.$invalid)" ng-click="searchWeather(search.result,'city')">Search</span>
 		</form>
 	</div>
 </div>
@@ -44,7 +44,7 @@
 
 
 <div ng-if="div1Hide">
-     <ng-map id="map1" class="map" style="height:300px;" center="[-33.851371, 151.277736]" zoom-level="18" on-click="mapClicked()">Click in the map to search</ng-map>
+     <ng-map id="map1" class="map" style="height:300px;" center="[-22.950, -46.972]" zoom-level="18" on-click="mapClicked()">Click in the map to search</ng-map>
 
       
 </div>
