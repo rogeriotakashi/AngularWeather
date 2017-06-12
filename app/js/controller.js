@@ -28,6 +28,7 @@ angular.module('angularWeather',['ngAnimate','resultModule','ngRoute','ngMap'])
 
 	$scope.mapClicked = function(event){
 		$scope.searchWeather(event.latLng,'coord');
+		$scope.div1Hide = false;
 	}
 
 
@@ -56,8 +57,10 @@ angular.module('angularWeather',['ngAnimate','resultModule','ngRoute','ngMap'])
 })
 .config(function($routeProvider){
 	
-	$routeProvider.when("/map", {
-    	templateUrl : "partials/map-search.html"
+	$routeProvider.when("/sign", {
+    	templateUrl : "partials/sign.html"
+  	}).when("/", {
+    	templateUrl : "partials/principal.html"
   	});
 
 });
