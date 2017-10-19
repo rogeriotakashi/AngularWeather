@@ -35,10 +35,10 @@ angular.module('angularWeather',['ngAnimate','resultModule','ngRoute','ngMap'])
 	function getJSONObj(search,parameter){
 		switch(parameter){
 			case 'city':
-				return JSON.parse(getJSON("http://api.openweathermap.org/data/2.5/weather?q="+search+"&units=metric&appid=0d9804d47ee2f434cb4ce6c4345aab5c"));
+				return JSON.parse(getJSON("http://api.openweathermap.org/data/2.5/weather?q="+search+"&units=metric&appid="));
 				break;
 			case 'coord':
-				return JSON.parse(getJSON("http://api.openweathermap.org/data/2.5/weather?lat="+search.lat()+"&lon="+search.lng()+"&units=metric&appid=0d9804d47ee2f434cb4ce6c4345aab5c"));
+				return JSON.parse(getJSON("http://api.openweathermap.org/data/2.5/weather?lat="+search.lat()+"&lon="+search.lng()+"&units=metric&appid="));
 				break;
 		}
 	}
